@@ -1,11 +1,12 @@
 <div class="panel panel-warning">
   <div class="panel-heading">
       <h2>Assets for</h2> 
-      <select (change)="selectOnChange($event.target.value)" class="form-control category-list">
-          <option (click)="assetCategory-1">Category 1</option>
-          <option (click)="assetCategory-2">Category 3</option>
-          <option (click)="assetCategory-3">Category 4</option>
-          <option (click)="assetCategory-4">Category 5</option>
+      <select (change)="selectOnChange($event.target.value)" 
+              class="form-control category-list" 
+              >
+              <option *ngFor = "let optioneo of assetCategories">{{optioneo.name}}</option>
+        
+        
       </select>
   </div>
   <div class="panel-body">

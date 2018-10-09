@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'BiggerPicture';
-  serviceElements = [ ];
+  public serviceElements = [ ];
   // assetsElements = [ ];
 
 
@@ -16,6 +16,10 @@ export class AppComponent {
     this.serviceElements.push({
       name: serviceData.serviceName
     });
+  }
+
+  generate(){
+    console.log(this.serviceElements)
   }
 
 //   onAssetAdded(assetData: {assetName: string, assetNumber: number}) {

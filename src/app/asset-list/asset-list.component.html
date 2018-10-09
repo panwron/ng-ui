@@ -1,7 +1,7 @@
 <div class="panel panel-warning">
   <div class="panel-heading">
       <h2>Assets for</h2> 
-      <select class="form-control category-list">
+      <select (change)="selectOnChange($event.target.value)" class="form-control category-list">
           <option (click)="assetCategory-1">Category 1</option>
           <option (click)="assetCategory-2">Category 3</option>
           <option (click)="assetCategory-3">Category 4</option>

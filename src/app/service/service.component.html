@@ -1,0 +1,52 @@
+ <div dragula="VAMPS">
+ <div #service>
+ <div class="panel panel-default" >
+              <div class="panel-heading"> {{ element.name }} 
+                  
+                  <p class="pull-right">
+                      <a (click)="service.remove()"><span class="glyphicon glyphicon-remove"></span></a>
+                      <span class="glyphicon glyphicon-move"></span>
+                      <a (click)="toggle_class()">Toggle</a>
+                  </p>
+                </div> 
+              </div>
+              <div class="panel-body" [className] ="serviceVisibilty">
+                  <div class="row">
+                      <div class="col-sm-6 col-xs-12">
+                          <b>Value 1</b>
+                          <input type="range" name="points" min="0" max="10">
+                      </div>
+
+                      <div class="col-sm-6 col-xs-12">
+                          <b>Value 2</b>
+                          <input type="range" name="points" min="0" max="10">
+                      </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="col-sm-6 col-xs-12">
+                          <b>Value 3</b>
+                          <input type="range" name="points" min="0" max="10">
+                      </div>
+
+                      <div class="col-sm-6 col-xs-12">
+                          <b>Value 4</b>
+                          <input type="range" name="points" min="0" max="10">
+                      </div>
+                  </div>
+
+                  <div class="assets">
+                      <h3>Assets</h3>
+                      <div dragula="VAMPIRES">
+                      <ul class="list-group">
+                          <!-- <li class="list-group-item">Asset 1</li>
+                          <li class="list-group-item">Asset 3</li>
+                          <li class="list-group-item">Asset 4</li> -->
+                      </ul>
+                    </div>
+                  </div>
+              </div>
+            </div> 
+        </div>
+
+          <!-- // -->

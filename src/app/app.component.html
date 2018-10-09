@@ -1,0 +1,33 @@
+<app-header></app-header>
+
+<div class="container">
+  <div class="row">
+      <section class="col-sm-7 col-xs-12">
+
+            <app-add-service (serviceCreated)="onServiceAdded($event)"></app-add-service>
+            
+            <app-service 
+            *ngFor="let serviceElement of serviceElements" 
+            [element]="serviceElement"
+            ></app-service>
+         
+
+          <!-- Services -->
+         
+      </section>
+
+      <aside class="col-sm-5 col-xs-12" role="complementary">
+       
+
+
+            <app-asset-list></app-asset-list>
+         <app-add-custom-asset></app-add-custom-asset>
+
+        <!-- <app-custom-assets-list> </app-custom-assets-list> -->
+        
+      </aside>
+  </div>
+
+  <footer class="row text-center" role="contentinfo">
+      <button class="btn btn-primary btn-lg" type="button">Generate</button>
+  </footer>

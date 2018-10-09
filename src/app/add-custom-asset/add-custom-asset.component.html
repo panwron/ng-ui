@@ -1,0 +1,27 @@
+<div class="panel panel-warning">
+  <div class="panel-heading">
+      <h2>Custom assets</h2> 
+  </div>
+  <div class="panel-body">
+      <form class="form-inline">
+          <input type="password" class="form-control" placeholder="Asset title" [(ngModel)]="newAssetName" name="custom-asset-name">
+          <button type="button" class="btn btn-primary" (click)="onAddAsset()">Add</button>
+      </form>
+      
+      <ul class="assets list-group" *ngFor="let customAsset of assetElements" dragula="VAMPIRES">
+         
+          <li #asset class="list-group-item">
+              {{ customAsset.name }}
+              {{ customAsset.category }}
+
+              <p class="pull-right">
+                  <a (click)="asset.remove()"><span class="glyphicon glyphicon-remove"></span></a>
+                  <span class="glyphicon glyphicon-move"></span>
+              </p>
+            
+          </li>
+        
+      </ul>
+    
+  </div>
+</div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DragulaModule } from 'ng2-dragula';
+import { DragulaModule, dragula } from 'ng2-dragula';
 
 @Component({
   selector: 'app-asset-list',
@@ -8,45 +8,47 @@ import { DragulaModule } from 'ng2-dragula';
 })
 
 export class AssetListComponent implements OnInit {
-  public assetCategoriesElements = [ 'Asset 1', 'Asset 2', 'Asset 3', 'Asset 4', 'Asset 5'];
+
+
+  private activeCategoryName =  "Category 1"
+  public activeCategoryItems = null;
+
   public assetCategories = [
     {
      name: "Category 1",
-     asset: [ 'Asset 1 1', 'Asset 2 1', 'Asset 3 1', 'Asset 4 1', 'Asset 5 1']
+     asset: [ 'Asset 1 from cat 1', 'Asset 2 from cat 1', 'Asset 3 from cat 1', 'Asset 4 from cat 1', 'Asset 5 from cat 1']
     },
     {
       name: "Category 2",
-      asset: [ 'Asset 1 2', 'Asset 2 2', 'Asset 3 2', 'Asset 4 2', 'Asset 5 2']
+      asset: [ 'Asset 1 from cat 2', 'Asset 2 from cat 2', 'Asset 3 from cat 2', 'Asset 4 from cat 2', 'Asset 5 from cat 2']
      },
      {
       name: "Category 3",
-      asset: [ 'Asset 1 3', 'Asset 2 3', 'Asset 3 3', 'Asset 4 3', 'Asset 5 3']
+      asset: [ 'Asset 1 from cat 3', 'Asset 2 from cat 3', 'Asset 3 from cat 3', 'Asset 4  from cat3', 'Asset 5 from cat 3']
      }
   ];
 
-  public activeCategoryItems = null;
-  constructor() { }
-
-  getactiveCategory(categoryName){
-    
-    const activeCat = this.assetCategories.filter((category) => category.name == categoryName )
-    return activeCat[0].asset
-
-  }
-
-  selectOnChange(e) {
-    console.log(e);
-    console.log(this.getactiveCategory(e));
-
-    this.activeCategoryItems = this.getactiveCategory(e);
   
 
+  constructor() {
+   }
+
+  getCategoryItems = (categoryName : string) => 
+      this.assetCategories.filter((category) => 
+      category.name == categoryName )[0].asset;
+
+  
+
+  selectOnChange(selectedCategoryName) {
+    console.log(`category name =>  ${selectedCategoryName}`);
+    console.log(`category items =>  ${this.getCategoryItems(selectedCategoryName)}`);
+
+    this.activeCategoryItems = this.getCategoryItems(selectedCategoryName);
+    this.activeCategoryName = selectedCategoryName
   }
 
   ngOnInit() {
-
-    this.activeCategoryItems =  this.getactiveCategory("Category 2");
-
+    this.activeCategoryItems =  this.getCategoryItems(this.activeCategoryName);
   }
   
 }
